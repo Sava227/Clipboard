@@ -1,0 +1,6 @@
+Build/
+BuildCpp/
+DerivedData/
+*.xcuserdata/
+*.xcuserstate
+.DS_Store

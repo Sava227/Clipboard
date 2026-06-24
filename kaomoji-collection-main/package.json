@@ -1,0 +1,36 @@
+{
+  "name": "kaomoji-collection",
+  "version": "1.0.0",
+  "description": "The largest curated collection of Japanese kaomoji (顔文字) — 41,000+ emoticons across 535 categories",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "keywords": [
+    "kaomoji",
+    "emoticon",
+    "emoji",
+    "japanese",
+    "顔文字",
+    "text-emoticon",
+    "ascii-art",
+    "unicode",
+    "face",
+    "cute",
+    "kawaii"
+  ],
+  "homepage": "https://www.kaomojiya.org",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kaomojiya-collection/kaomoji-collection.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kaomojiya-collection/kaomoji-collection/issues"
+  },
+  "author": "Kaomojiya (https://www.kaomojiya.org)",
+  "license": "MIT",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "kaomoji.json",
+    "categories/"
+  ]
+}
