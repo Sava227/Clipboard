@@ -1,4 +1,4 @@
-# Clipboard Glass
+# Clipboard
 
 A native macOS clipboard manager built in C++ with an Objective-C++ AppKit bridge.
 
@@ -15,17 +15,17 @@ A native macOS clipboard manager built in C++ with an Objective-C++ AppKit bridg
 ## Build
 
 ```sh
-xcodebuild -project ClipboardGlassCpp.xcodeproj -scheme "Clipboard Glass" -configuration Debug -derivedDataPath BuildCpp build
+xcodebuild -project ClipboardGlassCpp.xcodeproj -scheme "Clipboard" -configuration Debug -derivedDataPath BuildCpp build
 ```
 
 The built app will be at:
 
 ```text
-BuildCpp/Build/Products/Debug/Clipboard Glass.app
+BuildCpp/Build/Products/Debug/Clipboard.app
 ```
 
 ## Run
 
-Open `ClipboardGlassCpp.xcodeproj` in Xcode and run the `Clipboard Glass` scheme, or launch the built app from Finder.
+Open `ClipboardGlassCpp.xcodeproj` in Xcode and run the `Clipboard` scheme, or launch the built app from Finder.
 
 Because this app monitors the system pasteboard and registers a global hotkey, macOS may ask for permission depending on local privacy settings.

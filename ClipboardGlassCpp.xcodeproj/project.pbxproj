@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		3B0000000000000000000001 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3B0000000000000000000101 /* main.mm */; };
 		3B0000000000000000000002 /* ClipboardHistory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B0000000000000000000102 /* ClipboardHistory.cpp */; };
+		3B0000000000000000000003 /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3B0000000000000000000105 /* AppIcon.icns */; };
+		3B0000000000000000000004 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B0000000000000000000106 /* logo.png */; };
+		3B0000000000000000000005 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 3B0000000000000000000108 /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -16,7 +19,11 @@
 		3B0000000000000000000102 /* ClipboardHistory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ClipboardHistory.cpp; sourceTree = "<group>"; };
 		3B0000000000000000000103 /* ClipboardHistory.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ClipboardHistory.hpp; sourceTree = "<group>"; };
 		3B0000000000000000000104 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3B0000000000000000000200 /* Clipboard Glass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Clipboard Glass.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B0000000000000000000105 /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
+		3B0000000000000000000106 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		3B0000000000000000000107 /* ClipboardGlass.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClipboardGlass.entitlements; sourceTree = "<group>"; };
+		3B0000000000000000000108 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		3B0000000000000000000200 /* Clipboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clipboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +76,10 @@
 			isa = PBXGroup;
 			children = (
 				3B0000000000000000000104 /* Info.plist */,
+				3B0000000000000000000107 /* ClipboardGlass.entitlements */,
+				3B0000000000000000000108 /* PrivacyInfo.xcprivacy */,
+				3B0000000000000000000105 /* AppIcon.icns */,
+				3B0000000000000000000106 /* logo.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -76,7 +87,7 @@
 		3B0000000000000000000406 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3B0000000000000000000200 /* Clipboard Glass.app */,
+				3B0000000000000000000200 /* Clipboard.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,9 +95,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3B0000000000000000000501 /* Clipboard Glass */ = {
+		3B0000000000000000000501 /* Clipboard */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3B0000000000000000000902 /* Build configuration list for PBXNativeTarget "Clipboard Glass" */;
+			buildConfigurationList = 3B0000000000000000000902 /* Build configuration list for PBXNativeTarget "Clipboard" */;
 			buildPhases = (
 				3B0000000000000000000302 /* Sources */,
 				3B0000000000000000000301 /* Frameworks */,
@@ -96,9 +107,9 @@
 			);
 			dependencies = (
 			);
-			name = "Clipboard Glass";
-			productName = "Clipboard Glass";
-			productReference = 3B0000000000000000000200 /* Clipboard Glass.app */;
+			name = "Clipboard";
+			productName = "Clipboard";
+			productReference = 3B0000000000000000000200 /* Clipboard.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -129,7 +140,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3B0000000000000000000501 /* Clipboard Glass */,
+				3B0000000000000000000501 /* Clipboard */,
 			);
 		};
 /* End PBXProject section */
@@ -139,6 +150,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B0000000000000000000003 /* AppIcon.icns in Resources */,
+				3B0000000000000000000004 /* logo.png in Resources */,
+				3B0000000000000000000005 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +257,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = ClipboardGlassCpp/Resources/ClipboardGlass.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -261,8 +276,8 @@
 					"-framework",
 					Carbon,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.local.ClipboardGlassCpp;
-				PRODUCT_NAME = "Clipboard Glass";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sava.Clipboard;
+				PRODUCT_NAME = Clipboard;
 			};
 			name = Debug;
 		};
@@ -270,6 +285,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = ClipboardGlassCpp/Resources/ClipboardGlass.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -288,8 +305,8 @@
 					"-framework",
 					Carbon,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.local.ClipboardGlassCpp;
-				PRODUCT_NAME = "Clipboard Glass";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sava.Clipboard;
+				PRODUCT_NAME = Clipboard;
 			};
 			name = Release;
 		};
@@ -305,7 +322,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3B0000000000000000000902 /* Build configuration list for PBXNativeTarget "Clipboard Glass" */ = {
+		3B0000000000000000000902 /* Build configuration list for PBXNativeTarget "Clipboard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3B0000000000000000000803 /* Debug */,

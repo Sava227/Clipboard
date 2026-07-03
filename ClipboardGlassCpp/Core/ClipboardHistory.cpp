@@ -89,10 +89,12 @@ void ClipboardHistory::load() {
         ClipboardItem item;
         item.id = parts[1];
         item.kind = kindFromStorage(parts[2]);
+        if (item.kind == ClipboardKind::Image || item.kind == ClipboardKind::File) {
+            continue;
+        }
         item.title = hexDecode(parts[3]);
         item.preview = hexDecode(parts[4]);
         item.content = hexDecode(parts[5]);
-        item.imageBase64 = hexDecode(parts[6]);
         item.createdAt = std::stoll(parts[7]);
         item.pinned = parts[8] == "1";
         item.favorite = parts[9] == "1";
@@ -198,7 +200,6 @@ std::vector<ClipboardItem> ClipboardHistory::filtered(const std::string& query, 
     }
 
     std::stable_sort(result.begin(), result.end(), [](const ClipboardItem& lhs, const ClipboardItem& rhs) {
-        if (lhs.pinned != rhs.pinned) return lhs.pinned > rhs.pinned;
         if (lhs.favorite != rhs.favorite) return lhs.favorite > rhs.favorite;
         return lhs.createdAt > rhs.createdAt;
     });
@@ -221,21 +222,13 @@ const std::vector<ClipboardItem>& ClipboardHistory::all() const {
 }
 
 void ClipboardHistory::trimToLimit() {
-    std::vector<ClipboardItem> pinned;
-    std::vector<ClipboardItem> unpinned;
+    std::size_t unpinnedCount = 0;
 
-    for (const auto& item : items_) {
-        if (item.pinned) {
-            pinned.push_back(item);
-        } else if (unpinned.size() < maxUnpinnedItems) {
-            unpinned.push_back(item);
-        }
-    }
-
-    items_.clear();
-    items_.reserve(pinned.size() + unpinned.size());
-    items_.insert(items_.end(), pinned.begin(), pinned.end());
-    items_.insert(items_.end(), unpinned.begin(), unpinned.end());
+    items_.erase(std::remove_if(items_.begin(), items_.end(), [&](const ClipboardItem& item) {
+        if (item.pinned) return false;
+        unpinnedCount++;
+        return unpinnedCount > maxUnpinnedItems;
+    }), items_.end());
 }
 
 std::string clipboardKindName(ClipboardKind kind) {
